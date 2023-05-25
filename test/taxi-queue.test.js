@@ -8,7 +8,7 @@ describe('The taxi queue app', function() {
 		taxiQueue.joinQueue();
 		taxiQueue.joinQueue();
 		taxiQueue.joinQueue();
-		taxiQueue.joinQueue();
+		taxiQueue.joinQueue(); 
 
 		assert.equal(5, taxiQueue.queueLength());
 

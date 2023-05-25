@@ -18,8 +18,8 @@
 */
 
 
-function TaxiQueue() {
-	var state = {
+function TaxiQueue(currentStatus) {
+	var state = currentStatus || {
 		passengers: 0,
 		taxis: 0
 	};
@@ -53,12 +53,17 @@ function TaxiQueue() {
 		} 
 	}
 
+	function getState(){
+		return state;
+	}
+
 	return {
 		joinQueue,
 		leaveQueue,
 		joinTaxiQueue,
 		queueLength,
 		taxiQueueLength,
-		taxiDepart
+		taxiDepart,
+		getState
 	}
 }

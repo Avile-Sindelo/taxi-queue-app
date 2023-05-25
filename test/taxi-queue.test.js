@@ -164,7 +164,7 @@ describe('The taxi queue app', function() {
 		taxiQueue.joinQueue();
 		taxiQueue.joinQueue();
 		taxiQueue.joinQueue(); // 12
-		taxiQueue.joinQueue(); 
+		taxiQueue.joinQueue();  
 		taxiQueue.joinQueue();
 		taxiQueue.joinQueue(); 
 

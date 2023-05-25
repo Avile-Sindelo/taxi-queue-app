@@ -50,7 +50,7 @@ function TaxiQueue() {
 		if(state.passengers >= 12){
 			state.taxis--;
 			state.passengers = state.passengers - 12;
-		}
+		} 
 	}
 
 	return {

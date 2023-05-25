@@ -28,7 +28,7 @@ const taxiJoin = document.querySelector('.join_taxi_queue');
 const taxiDepart = document.querySelector('.depart');
 
 
-let passengers, taxis, currentStatus;
+let currentStatus;
 //Check if there is a state on localStorage
 if(localStorage['state']){
     //Display the passenger count from localStorage
@@ -43,18 +43,40 @@ if(localStorage['state']){
 
 const taxiQueue = TaxiQueue(currentStatus);
 
-passengerCountElement.innerHTML = passengers;
-taxiCountElement.innerHTML = taxis;
+passengerCountElement.innerHTML = currentStatus.passengers;
+taxiCountElement.innerHTML = currentStatus.taxis;
 
 // DOM events
 passengerJoinQueue.addEventListener('click', ()=>{
-    //Get the passengers from local storage
-    let status = JSON.parse(localStorage.getItem('state'));
-    console.log(status);
     taxiQueue.joinQueue();
-    console.log(taxiQueue.queueLength());
+  
     //update local storage
     localStorage.setItem('state', JSON.stringify(taxiQueue.getState()))
     passengerCountElement.innerHTML = JSON.parse(localStorage.getItem('state')).passengers;
+});
+
+passengerLeaveQueue.addEventListener('click', ()=>{
+    taxiQueue.leaveQueue();
+ 
+    //update local storage
+    localStorage.setItem('state', JSON.stringify(taxiQueue.getState()))
+    passengerCountElement.innerHTML = JSON.parse(localStorage.getItem('state')).passengers;
+});
+
+taxiJoin.addEventListener('click', ()=>{
+    taxiQueue.joinTaxiQueue();
+
+    //update local storage
+    localStorage.setItem('state',JSON.stringify(taxiQueue.getState()));
+    taxiCountElement.innerHTML = JSON.parse(localStorage.getItem('state')).taxis;
+});
+
+taxiDepart.addEventListener('click', ()=>{
+    taxiQueue.taxiDepart();
+
+    //update local storage
+    localStorage.setItem('state', JSON.stringify(taxiQueue.getState()))
+    passengerCountElement.innerHTML = JSON.parse(localStorage.getItem('state')).passengers;
+    taxiCountElement.innerHTML = JSON.parse(localStorage.getItem('state')).taxis;
 });
 

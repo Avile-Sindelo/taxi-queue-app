@@ -33,7 +33,6 @@ let currentStatus;
 if(localStorage['state']){
     //Display the passenger count from localStorage
    currentStatus = JSON.parse(localStorage.getItem('state'));
-   console.log(currentStatus);
 } else {
     localStorage.setItem('state', JSON.stringify({passengers: 0, taxis: 0}));
     location.reload();

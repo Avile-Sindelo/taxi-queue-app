@@ -13,8 +13,6 @@
  * 			Decrement the taxi count
  * 			Remove 12 passengers from the passenger count of the state
  * 
-  
-
 */
 
 
@@ -47,7 +45,7 @@ function TaxiQueue(currentStatus) {
 	}
 
 	function taxiDepart(){
-		if(state.passengers >= 12){
+		if(state.passengers >= 12 && state.taxis > 0){
 			state.taxis--;
 			state.passengers = state.passengers - 12;
 		} 

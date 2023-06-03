@@ -177,7 +177,7 @@ describe('The taxi queue app', function() {
 		
 		// data after a taxi departed
 		assert.equal(15, taxiQueue.queueLength());
-		//assert.equal(15, taxiQueue.queueLengthx());
+		assert.equal('There is no taxi to take the passengers!', taxiQueue.taxiDepart());
 
 	});
 });

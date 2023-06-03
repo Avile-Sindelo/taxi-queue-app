@@ -5,8 +5,9 @@ body {
 
 
 .count {
-	font-size: 4em;
+	font-size: 3em;
 	padding: 0.1em;
+	margin: 0.2em;
 	border: 2px solid;
 	background-color: orchid;
 	border-radius: 0.1em;
@@ -29,5 +30,9 @@ button {
 @media (min-width: 768px) {
 	.sections {
 		display: flex;
+	}	
+
+	.count{
+		padding: 15%;
 	}
 }

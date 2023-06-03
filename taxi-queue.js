@@ -19,7 +19,8 @@
 function TaxiQueue(currentStatus) {
 	var state = currentStatus || {
 		passengers: 0,
-		taxis: 0
+		taxis: 0,
+		taxisDeparted: 0
 	};
 
 	function joinQueue() {
@@ -45,9 +46,14 @@ function TaxiQueue(currentStatus) {
 	}
 
 	function taxiDepart(){
+		if(state.taxis == 0){
+			return 'There is no taxi to take the passengers!';
+		}
+
 		if(state.passengers >= 12 && state.taxis > 0){
 			state.taxis--;
 			state.passengers = state.passengers - 12;
+			state.taxisDeparted++;
 		} 
 	}
 
